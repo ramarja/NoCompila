@@ -10,14 +10,14 @@
 #define BLINKING_RATE     500ms
 
 
-int main()
+int main() //Hola
 {
     // Initialise the digital pin LED1 as an output
 #ifdef LED1
     DigitalOut led(LED1);  //test
 #else
     bool led;
-#endif
+#endif   
 
     while (true) {
         led = !led;
