@@ -14,7 +14,7 @@ int main() //Hola
 {
     // Initialise the digital pin LED1 as an output
 #ifdef LED1
-    DigitalOut led(LED1);  //test
+    DigitalOut led(LED1);  //led
 #else
     bool led;
 #endif   
