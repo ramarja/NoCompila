@@ -3,24 +3,39 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+
+#include "ThisThread.h"
 #include "mbed.h"
+#include "InterruptIn.h"
 
+InterruptIn int1(BUTTON1);
+DigitalOut myled(LED1);
+int delay =1000;
 
-// Blinking rate in milliseconds
-#define BLINKING_RATE     500ms
+void pressed()
+{
+    if (delay == 2000)
+        delay = 200; // 200 ms                                                  
+    else
+        delay = 2000; // 1 sec                                                  
+}
+
 
 
 int main() //Hola
 {
-    // Initialise the digital pin LED1 as an output
-#ifdef LED1
-    DigitalOut led(LED1);  //led
-#else
-    bool led;
-#endif   
+
+    int measure[5];
+    float averageValue;
+
+    int1.rise(&pressed);
 
     while (true) {
-        led = !led;
-        ThisThread::sleep_for(BLINKING_RATE);
+
+
+        myled = !myled;
+        ThisThread::sleep_for(delay);
+
+        
     }
 }
